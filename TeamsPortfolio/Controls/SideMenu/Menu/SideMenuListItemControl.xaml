@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="TeamsPortfolio.SideMenuListItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TeamsPortfolio"
+             mc:Ignorable="d" 
+             d:DesignHeight="70" d:DesignWidth="70"
+             Height="70" Width="70">
+    
+    <!-- menu list item -->
+    <Grid DataContext="{x:Static local:SideMenuListItemDesignModel.Instance}">
+        
+        <Grid.ColumnDefinitions>
+            <!-- indicator bar -->
+            <ColumnDefinition Width="Auto" />
+
+            <!-- icon and menu name -->
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- indicator bar -->
+        <Border Grid.ColumnSpan="2" 
+                Background="{StaticResource TeamsBackgroundWhiteBrush}" 
+                Width="3"
+                HorizontalAlignment="Left"
+                />
+
+        <!-- icon and menu name -->
+        <Grid Grid.Column="1">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="0" 
+                    Padding="0 7 0 15"
+                    Style="{StaticResource IconColumnButton}"
+                    Content="{Binding Icon, Converter={local:StringToContentConverter}}"
+                    />
+            
+
+            <TextBlock Grid.Row="1"
+                       Text="{Binding Name}"                       
+                       HorizontalAlignment="Center"
+                       Padding="0 0 0 5"
+                       FontFamily="{StaticResource LatoRegular}"
+                       Foreground="{StaticResource TeamsForegroundWhiteBrush}"/>
+
+        </Grid>
+            
+
+    </Grid>
+</UserControl>

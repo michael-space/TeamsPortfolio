@@ -1,0 +1,68 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:TeamsPortfolio" 
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+
+    <!-- to find the name of the font, open Fonts folder and double click a font file 
+    and you'll find the real name of the font on the top left of the screen.  -->
+    <FontFamily x:Key="LatoThin">pack://application:,,,/Fonts/#Lato Thin</FontFamily>
+    <FontFamily x:Key="LatoRegular">pack://application:,,,/Fonts/#Lato Regular</FontFamily>
+    <FontFamily x:Key="LatoBold">pack://application:,,,/Fonts/#Lato Bold</FontFamily>
+    <FontFamily x:Key="FontAwesome">pack://application:,,,/Fonts/#FontAwesome</FontFamily>
+
+    <Style TargetType="{x:Type Control}" x:Key="BaseControlThinStyle">
+        <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
+    </Style>
+
+    <Style TargetType="{x:Type Control}" x:Key="BaseControlRegularStyle">
+        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}" />
+    </Style>
+
+    <Style TargetType="{x:Type Control}" x:Key="BaseControlBoldStyle">
+        <Setter Property="FontFamily" Value="{StaticResource LatoBold}" />
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
+        <Setter Property="FontFamily" Value="{StaticResource LatoThin}" />
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockBoldStyle">
+        <Setter Property="FontFamily" Value="{StaticResource LatoBold}" />
+    </Style>
+
+    <!-- to apply styles to target types -->
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseControlThinStyle}" /> <!-- not applied because textblock in button is created dynamically-->
+    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseControlThinStyle}" />
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseControlThinStyle}" />
+    <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource BaseControlThinStyle}" />
+
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlockStyle}" />
+
+    <system:Double x:Key="FontSizeXSmall">9</system:Double>
+    <system:Double x:Key="FontSizeSmall">12</system:Double>
+    <system:Double x:Key="FontSizeMedium">16</system:Double>
+    <system:Double x:Key="FontSizeLarge">20</system:Double>
+    <system:Double x:Key="FontSizeXLarge">24</system:Double>
+
+    <system:String x:Key="FontAwesomeLoadingIcon">&#xf110;</system:String>
+    <system:String x:Key="FontAwesomeBellIcon">&#xf0f3;</system:String>
+    <system:String x:Key="FontAwesomeChatIcon">&#xf086;</system:String>
+    <system:String x:Key="FontAwesomePeopleIcon">&#xf0c0;</system:String>
+    <system:String x:Key="FontAwesomeCalendarIcon">&#xf073;</system:String>
+    <system:String x:Key="FontAwesomePhoneIcon">&#xf095;</system:String>
+    <system:String x:Key="FontAwesomeFileIcon">&#xf15b;</system:String>
+    <system:String x:Key="FontAwesomeOthersIcon">&#xf141;</system:String>
+    <system:String x:Key="FontAwesomeAppsIcon">&#xf07a;</system:String>
+    <system:String x:Key="FontAwesomeHelpIcon">&#xf059;</system:String>
+    <system:String x:Key="FontAwesomeFilterIcon">&#xf0b0;</system:String>
+    <system:String x:Key="FontAwesomeCreateTeamIcon">&#xf234;</system:String>
+    <system:String x:Key="FontAwesomeGearIcon">&#xf013;</system:String>
+    <system:String x:Key="FontAwesomeMinimizeIcon">&#xf2d1;</system:String>
+    <system:String x:Key="FontAwesomeSquareIcon">&#xf065;</system:String>
+    <system:String x:Key="FontAwesomeCloseIcon">&#xf00d;</system:String>
+    <system:String x:Key="FontAwesomeGreaterthanIcon">&#xf105;</system:String>
+    <system:String x:Key="FontAwesomeLessthanIcon">&#xf104;</system:String>
+    
+    
+    
+</ResourceDictionary>

@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- foreground -->
+    <Color x:Key="TeamsForegroundWhite">#ffffff</Color>
+    <SolidColorBrush x:Key="TeamsForegroundWhiteBrush" Color="{StaticResource TeamsForegroundWhite}"/>
+
+    <Color x:Key="TeamsForegroundVeryLightPupple">#c7c7f0</Color>
+    <SolidColorBrush x:Key="TeamsForegroundVeryLightPuppleBrush" Color="{StaticResource TeamsForegroundVeryLightPupple}"/>
+
+    <Color x:Key="TeamsForegroundPupple">#5961B0</Color>
+    <SolidColorBrush x:Key="TeamsForegroundPuppleBrush" Color="{StaticResource TeamsForegroundPupple}"/>
+
+    <Color x:Key="TeamsForegroundDarkGray">#787675</Color>
+    <SolidColorBrush x:Key="TeamsForegroundDarkGrayBrush" Color="{StaticResource TeamsForegroundDarkGray}"/>
+
+    <Color x:Key="TeamsForegroundDarkPupple">#343549</Color>
+    <SolidColorBrush x:Key="TeamsForegroundDarkPuppleBrush" Color="{StaticResource TeamsForegroundDarkPupple}"/>
+
+    <Color x:Key="TeamsForegroundBlack">#000000</Color>
+    <SolidColorBrush x:Key="TeamsForegroundBlackBrush" Color="{StaticResource TeamsForegroundBlack}"/>
+
+    <Color x:Key="TeamsForegroundLightGray">#edebe9</Color>
+    <SolidColorBrush x:Key="TeamsForegroundLightGrayBrush" Color="{StaticResource TeamsForegroundLightGray}"/>
+
+
+    <!-- background -->
+    <Color x:Key="TeamsBackgroundLightGray">#edebe9</Color>
+    <SolidColorBrush x:Key="TeamsBackgroundLightGrayBrush" Color="{StaticResource TeamsBackgroundLightGray}"/>
+
+    <Color x:Key="TeamsBackgroundWhite">#ffffff</Color>
+    <SolidColorBrush x:Key="TeamsBackgroundWhiteBrush" Color="{StaticResource TeamsBackgroundWhite}"/>
+
+    <Color x:Key="TeamsBackgroundRed">#e92324</Color>
+    <SolidColorBrush x:Key="TeamsBackgroundRedBrush" Color="{StaticResource TeamsBackgroundRed}"/>
+
+    <Color x:Key="TeamsBackgroundGray">#e7e7e7</Color>
+    <SolidColorBrush x:Key="TeamsBackgroundGrayBrush" Color="{StaticResource TeamsBackgroundGray}"/>
+
+    <Color x:Key="TeamsBackgroundLightPupple">#6364a7</Color>
+    <SolidColorBrush x:Key="TeamsBackgroundLightPuppleBrush" Color="{StaticResource TeamsBackgroundLightPupple}"/>
+
+    <Color x:Key="TeamsBackgroundPupple">#464775</Color>
+    <SolidColorBrush x:Key="TeamsBackgroundPuppleBrush" Color="{StaticResource TeamsBackgroundPupple}"/>
+    
+    <Color x:Key="TeamsBackroundDarkGray">#787675</Color>
+    <SolidColorBrush x:Key="TeamsBackroundDarkGrayBrush" Color="{StaticResource TeamsBackroundDarkGray}"/>
+
+    <Color x:Key="TeamsBackroundMorePupple">#42426d</Color>
+    <SolidColorBrush x:Key="TeamsBackroundMorePuppleBrush" Color="{StaticResource TeamsBackroundMorePupple}"/>
+
+    <Color x:Key="TeamsBackgroundDarkPupple">#343549</Color>
+    <SolidColorBrush x:Key="TeamsBackgroundDarkPuppleBrush" Color="{StaticResource TeamsBackgroundDarkPupple}"/>
+    
+</ResourceDictionary>

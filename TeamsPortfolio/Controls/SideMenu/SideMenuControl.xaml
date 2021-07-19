@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="TeamsPortfolio.SideMenuControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TeamsPortfolio"
+             mc:Ignorable="d" 
+             d:DesignHeight="792" d:DesignWidth="370">
+
+    <UserControl.Template>
+        <ControlTemplate TargetType="UserControl">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="300" />
+                </Grid.ColumnDefinitions>
+
+                <!-- left side menu list -->
+                <local:SideMenuListControl 
+                    Grid.Column="0">
+                    
+                </local:SideMenuListControl>
+
+                <!-- left side chat list -->
+                <local:SideChatListControl  
+                    Grid.Column="1"
+                    >
+                    <!--<local:ChatListItemControl Height="60" />-->
+                </local:SideChatListControl>
+
+                <ContentPresenter Grid.Column="1" />
+                
+            </Grid>
+
+        </ControlTemplate>
+    </UserControl.Template>
+</UserControl>

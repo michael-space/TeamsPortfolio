@@ -1,0 +1,90 @@
+﻿<local:BasePage x:TypeArguments="local:LoginViewModel" x:Class="TeamsPortfolio.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TeamsPortfolio"
+      mc:Ignorable="d" 
+      x:Name="Page"
+      d:DesignHeight="800" d:DesignWidth="500"
+      Title="LoginPage">
+
+    <Border Background="{StaticResource TeamsBackgroundLightGrayBrush}">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" 
+                      HorizontalScrollBarVisibility="Disabled"
+                      Padding="40">
+            <StackPanel VerticalAlignment="Center" 
+                        HorizontalAlignment="Center"
+                        TextBlock.TextAlignment="Center"
+                        >
+
+                <TextBlock Text="Teams Portfolio Version"
+                           Style="{StaticResource BaseTextBlockBoldStyle}" 
+                           Foreground="{StaticResource TeamsForegroundPuppleBrush}"
+                           FontSize="{StaticResource FontSizeLarge}"
+                           Margin="0 0 0 20"
+                           />
+
+                <!-- inner login panel -->
+                <Border Background="{StaticResource TeamsBackgroundWhiteBrush}"
+                        Width="420"
+                        Padding="30">
+
+                    <StackPanel>
+                        <Image Source="/Images/Big/sign-in-image.png" 
+                               Margin="20 0 20 20"
+                               />
+
+                        <!-- email -->
+                        <TextBox Margin="0 0 0 5"
+                                 Style="{StaticResource TextBoxPlaceHolder}"
+                                 Height="40" 
+                                 Tag="Sign-in address"
+                                 Text="{Binding Email}"
+                                 />
+
+                        <!-- password -->
+                        <PasswordBox x:Name="PasswordBox" 
+                                     Margin="0 0 0 5"
+                                     Height="40" 
+                                     Tag="Password"
+                                     Style="{StaticResource PasswordPlaceHolder}"                                     
+                                     />
+
+                        <!-- sign in button -->
+                        <Button Content="Sign in"
+                                local:IsBusyProperty.Value="{Binding LoginIsRunning}"
+                                Style="{StaticResource BasicPuppleButton}"
+                                Height="40"
+                                Margin="0 5"
+                                Command="{Binding LoginCommand}"
+                                CommandParameter="{Binding ElementName=Page}"
+                                />
+                    </StackPanel>
+
+                </Border>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="0 40 0 20"
+                            HorizontalAlignment="Center"
+                            >
+                    <Button Content="Not on Teams yet?"
+                            Style="{StaticResource GrayDisabledTextButton}"
+                            IsEnabled="False"
+                            />
+                    <Button Content="Learn more"
+                            Style="{StaticResource BasicPuppleTextButton}"                                                            
+                            />
+                </StackPanel>
+
+                <Button Content="Sign up for free"
+                        Margin="0 5"
+                        Padding="20 10"
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        Style="{StaticResource BasicWhiteButton}"
+                    />
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</local:BasePage>

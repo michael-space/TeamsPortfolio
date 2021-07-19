@@ -1,0 +1,139 @@
+﻿<UserControl x:Class="TeamsPortfolio.ChatListItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TeamsPortfolio"
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="300"
+             >
+
+    <UserControl.Resources>
+        
+        <Style x:Key="ContentStyle" TargetType="{x:Type ContentControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
+
+                        <!-- content -->
+                        <Grid x:Name="listItem" Background="{StaticResource TeamsBackgroundWhiteBrush}"          
+                              Height="50" Width="300"
+                              >
+
+                            <Grid.ColumnDefinitions>
+                                <!-- profile picture -->
+                                <ColumnDefinition Width="Auto" />
+
+                                <!-- teams name -->
+                                <ColumnDefinition Width="*" />
+
+                                <!-- others... -->
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- profile picture and badge -->
+                            <Grid Grid.Column="0">
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <!-- profile picture -->
+                                <Border Grid.Column="0" 
+                                        Background="{Binding ProfilePictureHexColor, Converter={local:StringHexColorToBrushConverter}}"
+                                        Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                                        CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                                        Margin="8"
+                                        >
+
+                                    <TextBlock Text="{Binding Initials}"
+                                               VerticalAlignment="Center"
+                                               HorizontalAlignment="Center" 
+                                               Foreground="{StaticResource TeamsForegroundWhiteBrush}"
+                                               FontSize="{StaticResource FontSizeMedium}"
+                                               FontFamily="{StaticResource LatoRegular}"
+                                               />
+
+                                </Border>
+
+                                <!-- badge -->
+                                <TextBlock Grid.Column="1" 
+                                           Text="{StaticResource FontAwesomeBellIcon}"
+                                           FontSize="{StaticResource FontSizeXSmall}"
+                                           Panel.ZIndex="1"
+                                           />
+
+                            </Grid>
+
+                            <StackPanel Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        >
+
+                                <TextBlock Text="{Binding Name}"
+                                           FontSize="{StaticResource FontSizeSmall}"
+                                           FontFamily="{StaticResource LatoBold}"
+                                           Foreground="{StaticResource TeamsForegroundDarkGrayBrush}"
+                                           TextTrimming="CharacterEllipsis"
+                                           />
+                                <TextBlock Text="{Binding Message}" 
+                                           FontSize="{StaticResource FontSizeXSmall}"
+                                           FontFamily="{StaticResource LatoRegular}"                       
+                                           Foreground="{StaticResource TeamsForegroundDarkGrayBrush}"  
+                                           TextTrimming="CharacterEllipsis"
+                                           />
+
+                            </StackPanel>
+
+                            <Button Grid.Column="2"
+                                    Style="{StaticResource HeaderTextControlButton}"
+                                    Content="{StaticResource FontAwesomeOthersIcon}"                
+                                    Foreground="{StaticResource TeamsForegroundDarkGrayBrush}"
+                                    />
+
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource TeamsBackgroundLightGray}"
+                                                        Duration="0:0:0.1"
+                                                        Storyboard.TargetName="listItem"
+                                                        Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource TeamsBackgroundWhite}"
+                                                        Duration="0:0:0.1"
+                                                        Storyboard.TargetName="listItem"
+                                                        Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="listItem" Value="{StaticResource TeamsBackroundDarkGrayBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                        
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <!-- mouse over -->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+    </UserControl.Resources>
+
+    <ContentControl d:DataContext="{x:Static local:ChatListItemDesignModel.Instance}"
+                    Style="{StaticResource ContentStyle}" />
+    
+</UserControl>

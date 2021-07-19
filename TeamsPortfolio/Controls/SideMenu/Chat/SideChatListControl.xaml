@@ -1,0 +1,99 @@
+﻿<UserControl x:Class="TeamsPortfolio.SideChatListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TeamsPortfolio"
+             mc:Ignorable="d" 
+             d:DesignHeight="792" d:DesignWidth="300">
+    
+    <!-- left chat list -->
+    <Border Grid.Column="1" 
+            Background="{StaticResource TeamsBackgroundWhiteBrush}"
+            Padding=" 5 0 5 0"
+            >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+
+            <!-- chatting list header -->
+            <Border Grid.Row="0"
+                    BorderThickness="0 0 0 1"
+                    BorderBrush="{StaticResource TeamsBackgroundGrayBrush}"
+                    >
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" 
+                               Text="menu name" 
+                               VerticalAlignment="Center"
+                               Padding="20"
+                               FontSize="{StaticResource FontSizeLarge}"
+                               FontFamily="{StaticResource LatoBold}"
+                               />
+
+                    <Button Grid.Column="2" 
+                            Style="{StaticResource IconRowButton}"
+                            Content="{StaticResource FontAwesomeFilterIcon}"                        
+                            />
+
+                </Grid>
+            </Border>
+
+            <!-- chatting list -->
+            <!--<StackPanel Grid.Row="1">
+
+                        </StackPanel>-->
+
+            <!-- the injected user content -->
+            <!--<ContentPresenter Grid.Row="1" />-->
+            <local:ChatListControl Grid.Row="1">
+                
+            </local:ChatListControl>
+            
+            <!--<local:ChatListItemControl Grid.Row="1" Height="60" VerticalAlignment="Top" />-->
+
+            <!-- chatting list bottom -->
+            <Border Grid.Row="2"
+                    BorderThickness="0 1 0 0"
+                    BorderBrush="{StaticResource TeamsBackgroundGrayBrush}"                        
+                    >
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" 
+                            Style="{StaticResource IconRowButton}"
+                            Content="{StaticResource FontAwesomeCreateTeamIcon}" />
+
+                    <TextBlock Grid.Column="1" 
+                               Text="Join or create a team" 
+                               VerticalAlignment="Center"
+                               Padding="0"
+                               FontSize="{StaticResource FontSizeSmall}"
+                               FontFamily="{StaticResource LatoRegular}"
+                               Foreground="{StaticResource TeamsForegroundDarkGrayBrush}"
+                               />
+
+                    <Button Grid.Column="3"
+                            Style="{StaticResource IconRowButton}"
+                            Content="{StaticResource FontAwesomeGearIcon}" />
+
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

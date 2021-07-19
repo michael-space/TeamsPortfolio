@@ -1,0 +1,409 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:TeamsPortfolio"
+                    >
+
+    <ResourceDictionary.MergedDictionaries>
+        <!-- place in order -->
+        <ResourceDictionary Source="Colors.xaml" />
+        <ResourceDictionary Source="Fonts.xaml" />
+        <ResourceDictionary Source="Texts.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!-- text button -->
+    <Style TargetType="{x:Type Button}" x:Key="TextButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource TeamsForegroundLightGrayBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <!--<Setter Property="Cursor" Value="Hand" />-->
+
+        <!-- to replace default button template -->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+
+                    <!-- to give more room for easy click-->
+                    <!-- TemplateBinding is used to bind properties within the template definition -->
+                    <Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}">
+                        <!-- ContentPresenter displays the content of a ContentControl-->
+                        <!-- ContentControl represents a control with a single piece of content of any type-->
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- header text button -->
+    <Style TargetType="Button" x:Key="HeaderTextButton" BasedOn="{StaticResource TextButton}">
+        <Setter Property="Padding" Value="5" />
+        <!-- WindowChrome.IsHitTestVisibleInChrome="True" to activate click in the header -->
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource TeamsBackgroundDarkPuppleBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- header text control button -->
+    <Style TargetType="Button" x:Key="HeaderTextControlButton" BasedOn="{StaticResource HeaderTextButton}">
+        <!--<Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource TeamsForegroundDarkGrayBrush}" />-->
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" />
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border x:Name="border"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}" 
+                            SnapsToDevicePixels="True">
+                        <Grid>
+                            <Viewbox>
+                                <TextBlock Text="{TemplateBinding Content}" 
+                                           Focusable="False" 
+                                           FontFamily="{TemplateBinding FontFamily}"
+                                           FontSize="{TemplateBinding FontSize}"
+                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                           Margin="{TemplateBinding Padding}" 
+                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Viewbox>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- header text close button -->
+    <Style x:Key="HeaderTextCloseButton" 
+           TargetType="Button" 
+           BasedOn="{StaticResource HeaderTextControlButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border x:Name="border" 
+                            Background="{TemplateBinding Background}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            SnapsToDevicePixels="true">
+
+                        <Viewbox>
+                            <TextBlock Text="{TemplateBinding Content}" 
+                                           Focusable="False" 
+                                           FontFamily="{TemplateBinding FontFamily}"
+                                           FontSize="{TemplateBinding FontSize}"
+                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                           Margin="{TemplateBinding Padding}" 
+                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Viewbox>
+                        <!--<TextBlock Style="{StaticResource CloseControlButtonText}"
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       />-->
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource TeamsBackgroundRedBrush}" />
+                <Setter Property="Foreground" Value="{StaticResource TeamsForegroundWhiteBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style> 
+
+    <!-- pupple text button -->
+    <Style TargetType="Button" x:Key="BasicPuppleTextButton">
+
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource TeamsForegroundPuppleBrush}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeMedium}" />
+        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}" />
+        <Setter Property="BorderThickness" Value="0" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border x:Name="border" 
+                            Background="{TemplateBinding Background}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            SnapsToDevicePixels="true">
+                        <!-- to customize font in buttons -->
+                        <TextBlock Text="{TemplateBinding Content}" 
+                                   Focusable="False"  
+                                   FontFamily="{TemplateBinding FontFamily}"
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                   Margin="{TemplateBinding Padding}" 
+                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Foreground" Value="{StaticResource TeamsForegroundWhiteBrush}"/>
+                            <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{StaticResource TeamsForegroundDarkGrayBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- gray disabled text button -->
+    <Style TargetType="Button" x:Key="GrayDisabledTextButton">
+
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource TeamsForegroundDarkGrayBrush}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeMedium}" />
+        <Setter Property="FontFamily" Value="{StaticResource LatoRegular}" />
+        <Setter Property="BorderThickness" Value="0" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border x:Name="border" 
+                            Background="{TemplateBinding Background}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            SnapsToDevicePixels="true">
+                        <!-- to customize font in buttons -->
+                        <TextBlock Text="{TemplateBinding Content}" 
+                                   Focusable="False"  
+                                   FontFamily="{TemplateBinding FontFamily}"
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                   Margin="{TemplateBinding Padding}" 
+                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- basic pupple button -->
+    <Style TargetType="Button" x:Key="BasicPuppleButton">
+
+        <Setter Property="Background" Value="{StaticResource TeamsBackgroundLightPuppleBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource TeamsForegroundWhiteBrush}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeMedium}" />
+        <Setter Property="FontFamily" Value="{StaticResource LatoBold}" />
+        <Setter Property="BorderThickness" Value="0" />
+
+        <Setter Property="local:IsBusyProperty.Value" Value="False" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border x:Name="border" 
+                            Background="{TemplateBinding Background}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            SnapsToDevicePixels="true">
+                        <Grid>
+                            <!-- to customize font in buttons -->
+                            <TextBlock Text="{TemplateBinding Content}" 
+                                       Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisibilityConverter}}"
+                                       Focusable="False"  
+                                       FontFamily="{TemplateBinding FontFamily}"
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                       Margin="{TemplateBinding Padding}" 
+                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+
+                            <TextBlock Style="{StaticResource SpinningText}"
+                                       Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisibilityConverter}, ConverterParameter=True}"
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       />
+                            <!--<TextBlock Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisibilityConverter}, ConverterParameter=True}"
+                                       Text="In processing..."
+                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                       />-->
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource TeamsBackgroundPuppleBrush}"/>
+                            <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource TeamsBackroundDarkGrayBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- basic white button -->
+    <Style TargetType="Button" x:Key="BasicWhiteButton">
+
+        <Setter Property="Background" Value="{StaticResource TeamsForegroundWhiteBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource TeamsForegroundBlackBrush}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeMedium}" />
+        <Setter Property="FontFamily" Value="{StaticResource LatoBold}" />
+        <Setter Property="BorderThickness" Value="0" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border x:Name="border" 
+                            Background="{TemplateBinding Background}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{TemplateBinding BorderBrush}" 
+                            SnapsToDevicePixels="true">
+                        <!-- to customize font in buttons -->
+                        <TextBlock Text="{TemplateBinding Content}" 
+                                   Focusable="False"  
+                                   FontFamily="{TemplateBinding FontFamily}"
+                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                   Margin="{TemplateBinding Padding}" 
+                                   SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource TeamsBackgroundLightPuppleBrush}"/>
+                            <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource TeamsBackgroundGrayBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource TeamsForegroundWhiteBrush}" />
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+    <!-- side menu text button -->
+    <Style x:Key="SideMenuTextButton" TargetType="Button" BasedOn="{StaticResource TextButton}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource TeamsForegroundWhiteBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Height" Value="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" />
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource TeamsBackroundMorePuppleBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Icon column button -->
+    <Style x:Key="IconColumnButton" TargetType="{x:Type Button}" BasedOn="{StaticResource TextButton}">
+
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource TeamsForegroundWhiteBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Cursor" Value="Hand" />
+
+        <Setter Property="Height" Value="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border x:Name="border"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}" 
+                            SnapsToDevicePixels="True">
+                        <Grid>
+                            <Viewbox>
+                                <TextBlock Text="{TemplateBinding Content}" 
+                                           Focusable="False" 
+                                           FontFamily="{TemplateBinding FontFamily}"
+                                           FontSize="{TemplateBinding FontSize}"
+                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                           Margin="{TemplateBinding Padding}" 
+                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Viewbox>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource TeamsBackroundMorePuppleBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Icon row button -->
+    <Style x:Key="IconRowButton" TargetType="{x:Type Button}" BasedOn="{StaticResource TextButton}">
+
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{StaticResource TeamsForegroundDarkGrayBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeLarge}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontAwesome}" />
+        <Setter Property="Padding" Value="20" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Cursor" Value="Hand" />
+
+        <Setter Property="Width" Value="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border x:Name="border"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}" 
+                            SnapsToDevicePixels="True">
+                        <Grid>
+                            <Viewbox>
+                                <TextBlock Text="{TemplateBinding Content}" 
+                                           Focusable="False" 
+                                           FontFamily="{TemplateBinding FontFamily}"
+                                           FontSize="{TemplateBinding FontSize}"
+                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                           Margin="{TemplateBinding Padding}" 
+                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Viewbox>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource TeamsForegroundDarkPuppleBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+</ResourceDictionary>
