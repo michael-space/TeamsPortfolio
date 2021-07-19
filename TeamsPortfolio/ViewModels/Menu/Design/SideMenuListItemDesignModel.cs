@@ -1,6 +1,4 @@
-﻿using System.Windows.Controls;
-
-namespace TeamsPortfolio
+﻿namespace TeamsPortfolio
 {
     /// <summary>
     /// the design-time data for a <see cref="SideMenuListItemViewModel"/>
@@ -23,7 +21,7 @@ namespace TeamsPortfolio
 
         public SideMenuListItemDesignModel()
         {
-            Icon = "{StaticResource FontAwesomeBellIcon}";            
+            Icon = "Solid_Bell";
             Name = "Activity";
             Indicator = false;
         }

@@ -5,12 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TeamsPortfolio"
              mc:Ignorable="d" 
-             d:DesignHeight="792" d:DesignWidth="70">
-    
-    <!-- left side menu -->
-    <Border Grid.Column="0" Background="{StaticResource TeamsBackgroundDarkPuppleBrush}" >
+             d:DesignHeight="792" d:DesignWidth="50">
 
-        <Grid>
+    <!-- left side menu -->
+    <Border Grid.Column="0">
+
+        <!-- need to find a way to insert space between top and bottom buttons -->
+        <StackPanel Background="{StaticResource TeamsBackgroundDarkPuppleBrush}"
+                    DataContext="{x:Static local:SideMenuListDesignModel.Instance}"
+                    >
+
+            <ItemsControl ItemsSource="{Binding SideMenuItemsList}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <local:SideMenuListItemControl />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+
+        <!-- fixed menu buttons -->
+        <!--<Grid Background="{StaticResource TeamsBackgroundDarkPuppleBrush}">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -25,63 +40,63 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <!-- 1 activity -->
+            --><!--1 activity-->
             <!--<Button Grid.Row="0" 
                         Style="{StaticResource IconColumnButton}"
                         Content="{StaticResource FontAwesomeBellIcon}"
-                        />-->
+                        />--><!--
 
             <local:SideMenuListItemControl Grid.Row="0" />
 
-            <!-- 2 chat -->
+            --><!--2 chat--><!--
             <Button Grid.Row="1" 
                         Style="{StaticResource IconColumnButton}"
                         Content="{StaticResource FontAwesomeChatIcon}"
                         />
 
-            <!-- 3 teams -->
+            --><!--3 teams--><!--
             <Button Grid.Row="2" 
                         Style="{StaticResource IconColumnButton}"
                         Content="{StaticResource FontAwesomePeopleIcon}"                        
                         />
 
-            <!-- 4 calendar -->
+            --><!--4 calendar--><!--
             <Button Grid.Row="3" 
                         Style="{StaticResource IconColumnButton}"
                         Content="{StaticResource FontAwesomeCalendarIcon}"                        
                         />
 
-            <!-- 5 calls -->
+            --><!--5 calls--><!--
             <Button Grid.Row="4" 
                         Style="{StaticResource IconColumnButton}"
                         Content="{StaticResource FontAwesomePhoneIcon}"                        
                         />
 
-            <!-- 6 files -->
+            --><!--6 files--><!--
             <Button Grid.Row="5" 
                         Style="{StaticResource IconColumnButton}"
                         Content="{StaticResource FontAwesomeFileIcon}"                        
                         />
 
-            <!-- 7 others -->
+            --><!--7 others--><!--
             <Button Grid.Row="6" 
                         Style="{StaticResource IconColumnButton}"
                         Content="{StaticResource FontAwesomeOthersIcon}"                        
                         />
 
-            <!-- 8 apps -->
+            --><!--8 apps--><!--
             <Button Grid.Row="8" 
                         Style="{StaticResource IconColumnButton}"
                         Content="{StaticResource FontAwesomeAppsIcon}"                        
                         />
 
-            <!-- 9 help -->
+            --><!--9 help--><!--
             <Button Grid.Row="9" 
                         Style="{StaticResource IconColumnButton}"
                         Content="{StaticResource FontAwesomeHelpIcon}"                        
                         />
 
-        </Grid>
+        </Grid>-->
 
     </Border>
 </UserControl>

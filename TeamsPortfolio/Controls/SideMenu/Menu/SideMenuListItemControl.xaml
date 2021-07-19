@@ -4,52 +4,104 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TeamsPortfolio"
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
              mc:Ignorable="d" 
-             d:DesignHeight="70" d:DesignWidth="70"
-             Height="70" Width="70">
-    
-    <!-- menu list item -->
-    <Grid DataContext="{x:Static local:SideMenuListItemDesignModel.Instance}">
-        
-        <Grid.ColumnDefinitions>
-            <!-- indicator bar -->
-            <ColumnDefinition Width="Auto" />
+             d:DesignHeight="50" d:DesignWidth="50"
+             Height="{Binding ActualWidth, RelativeSource={RelativeSource self}}"
+             >
 
-            <!-- icon and menu name -->
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+    <UserControl.Resources>
 
-        <!-- indicator bar -->
-        <Border Grid.ColumnSpan="2" 
-                Background="{StaticResource TeamsBackgroundWhiteBrush}" 
-                Width="3"
-                HorizontalAlignment="Left"
-                />
+        <Style x:Key="ContentStyle" TargetType="{x:Type ContentControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ContentControl}">
+                        
+                        <!-- menu list item -->
+                        <Grid x:Name="menuListItem"
+                              Background="{StaticResource TeamsBackgroundDarkPuppleBrush}"
+                              >
 
-        <!-- icon and menu name -->
-        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <!-- indicator bar -->
+                                <ColumnDefinition Width="Auto" />
+
+                                <!-- icon and menu name -->
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- indicator bar -->
+                            <Border Grid.ColumnSpan="2" 
+                                    Background="{StaticResource TeamsBackgroundWhiteBrush}" 
+                                    Width="3"
+                                    HorizontalAlignment="Left"
+                                    Visibility="Collapsed"
+                                    />
+
+                            <!-- icon and menu name -->
+                            <Grid Grid.Column="1">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <fa5:ImageAwesome Icon="{Binding Icon}"
+                                                  Margin="{Binding Margin}"
+                                                  Foreground="White" />
+
+                                <TextBlock Grid.Row="1"
+                                           Text="{Binding Name}"                       
+                                           HorizontalAlignment="Center"
+                                           Padding="0 0 0 5"
+                                           FontFamily="{StaticResource LatoRegular}"
+                                           FontSize="{StaticResource FontSizeXSmall}"
+                                           Foreground="{StaticResource TeamsForegroundWhiteBrush}"/>
+
+                            </Grid>
+
+                        </Grid>
+
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource TeamsBackroundMorePupple}"
+                                                        Duration="0:0:0.1"
+                                                        Storyboard.TargetName="menuListItem"
+                                                        Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <ColorAnimation To="{StaticResource TeamsBackgroundDarkPupple}"
+                                                        Duration="0:0:0.1"
+                                                        Storyboard.TargetName="menuListItem"
+                                                        Storyboard.TargetProperty="Background.Color" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" TargetName="menuListItem" Value="{StaticResource TeamsBackroundDarkGrayBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
             
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
+            <!-- mouse over -->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
 
-            <Button Grid.Row="0" 
-                    Padding="0 7 0 15"
-                    Style="{StaticResource IconColumnButton}"
-                    Content="{Binding Icon, Converter={local:StringToContentConverter}}"
-                    />
-            
+    </UserControl.Resources>
 
-            <TextBlock Grid.Row="1"
-                       Text="{Binding Name}"                       
-                       HorizontalAlignment="Center"
-                       Padding="0 0 0 5"
-                       FontFamily="{StaticResource LatoRegular}"
-                       Foreground="{StaticResource TeamsForegroundWhiteBrush}"/>
-
-        </Grid>
-            
-
-    </Grid>
+    <ContentControl d:DataContext="{x:Static local:SideMenuListItemDesignModel.Instance}"
+                    Style="{StaticResource ContentStyle}" />
 </UserControl>

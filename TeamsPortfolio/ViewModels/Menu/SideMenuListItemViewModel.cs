@@ -1,4 +1,4 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
 
 namespace TeamsPortfolio
 {
@@ -14,6 +14,10 @@ namespace TeamsPortfolio
         public string Name { get; set; }
 
         public bool Indicator { get; set; }
+
+        public int Grid { get; set; }
+
+        public Thickness Margin { get; set; }
 
         #endregion
     }

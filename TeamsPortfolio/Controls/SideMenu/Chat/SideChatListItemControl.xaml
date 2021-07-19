@@ -16,7 +16,8 @@
                     <ControlTemplate TargetType="{x:Type ContentControl}">
 
                         <!-- content -->
-                        <Grid x:Name="listItem" Background="{StaticResource TeamsBackgroundWhiteBrush}"          
+                        <Grid x:Name="listItem" 
+                              Background="{StaticResource TeamsBackgroundWhiteBrush}"          
                               Height="50" Width="300"
                               >
 

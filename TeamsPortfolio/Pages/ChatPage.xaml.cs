@@ -1,6 +1,4 @@
-﻿using System.Security;
-
-namespace TeamsPortfolio
+﻿namespace TeamsPortfolio
 {
     /// <summary>
     /// Interaction logic for ChatPage.xaml
