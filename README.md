@@ -1,5 +1,5 @@
-# TeamsPortfolio
+# Microsoft Teams Clone Portfolio
 
-Microsoft Teams Clone Portfolio (WPF: Windows Presentation Foundation)
+WPF: Windows Presentation Foundation
 
 In progress...
