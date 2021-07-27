@@ -36,6 +36,7 @@ namespace TeamsPortfolio
                     Name = "Jesse",
                     Message = "Hey dude, here are the new icons",
                     ProfilePictureHexColor = "A09C92",
+                    IsSelected = true
                 },
                 new ChatListItemViewModel
                 {

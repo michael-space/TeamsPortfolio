@@ -13,7 +13,9 @@ namespace TeamsPortfolio
 
         public string Name { get; set; }
 
-        public bool Indicator { get; set; }
+        public string ImgSource { get; set; }
+
+        public bool IsNewActivityReceived { get; set; }
 
         public int Grid { get; set; }
 

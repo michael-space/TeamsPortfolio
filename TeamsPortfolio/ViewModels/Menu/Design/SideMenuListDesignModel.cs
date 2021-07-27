@@ -28,7 +28,8 @@ namespace TeamsPortfolio
                 {
                     Icon = "Solid_Bell",
                     Name = "Activity",
-                    Indicator = false,
+                    ImgSource = "/Images/Others/Badge_1.png",
+                    IsNewActivityReceived = false,
                     Grid = 0,
                     Margin = new Thickness(10, 10, 10, 5),
                 },
@@ -36,7 +37,8 @@ namespace TeamsPortfolio
                 {
                     Icon = "Solid_Comment",
                     Name = "Chat",
-                    Indicator = false,
+                    ImgSource = "/Images/Others/Badge_1.png",
+                    IsNewActivityReceived = true,
                     Grid = 1,
                     Margin = new Thickness(10, 10, 10, 5),
                 },
@@ -44,7 +46,8 @@ namespace TeamsPortfolio
                 {
                     Icon = "Solid_Users",
                     Name = "Teams",
-                    Indicator = false,
+                    ImgSource = "/Images/Others/Badge_1.png",
+                    IsNewActivityReceived = false,
                     Grid = 2,
                     Margin = new Thickness(10, 10, 10, 5),
                 },
@@ -52,7 +55,8 @@ namespace TeamsPortfolio
                 {
                     Icon = "Regular_CalendarAlt",
                     Name = "Calendar",
-                    Indicator = false,
+                    ImgSource = "/Images/Others/Badge_1.png",
+                    IsNewActivityReceived = false,
                     Grid = 3,
                     Margin = new Thickness(10, 10, 10, 5),
                 },
@@ -60,7 +64,8 @@ namespace TeamsPortfolio
                 {
                     Icon = "Solid_Phone",
                     Name = "Phone",
-                    Indicator = false,
+                    ImgSource = "/Images/Others/Badge_1.png",
+                    IsNewActivityReceived = false,
                     Grid = 4,
                     Margin = new Thickness(10, 10, 10, 5),
                 },
@@ -68,7 +73,8 @@ namespace TeamsPortfolio
                 {
                     Icon = "Regular_File",
                     Name = "Files",
-                    Indicator = false,
+                    ImgSource = "/Images/Others/Badge_1.png",
+                    IsNewActivityReceived = false,
                     Grid = 5,
                     Margin = new Thickness(10, 10, 10, 5),
                 },
@@ -76,7 +82,8 @@ namespace TeamsPortfolio
                 {
                     Icon = "Solid_EllipsisH",
                     Name = "",
-                    Indicator = false,
+                    ImgSource = "/Images/Others/Badge_1.png",
+                    IsNewActivityReceived = false,
                     Grid = 6,
                     Margin = new Thickness(19, 19, 19, 0),
                 },
@@ -84,7 +91,8 @@ namespace TeamsPortfolio
                 {
                     Icon = "Solid_Store",
                     Name = "Apps",
-                    Indicator = false,
+                    ImgSource = "/Images/Others/Badge_1.png",
+                    IsNewActivityReceived = false,
                     Grid = 8,
                     Margin = new Thickness(10, 10, 10, 5),
                 },
@@ -92,7 +100,8 @@ namespace TeamsPortfolio
                 {
                     Icon = "Regular_QuestionCircle",
                     Name = "Help",
-                    Indicator = false,
+                    ImgSource = "/Images/Others/Badge_1.png",
+                    IsNewActivityReceived = false,
                     Grid = 9,
                     Margin = new Thickness(10, 10, 10, 5),
                 },

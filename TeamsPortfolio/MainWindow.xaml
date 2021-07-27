@@ -127,14 +127,14 @@
         </Grid.ColumnDefinitions>
 
         <!-- side menu -->
-        <local:SideMenuControl>
+        <local:SideMenuControl Grid.Column="0">
             <!--<local:ChatListItemControl Height="60" />-->
         </local:SideMenuControl>
         
         <!-- chat panel -->
-        <Border Grid.Column="2" Background="{StaticResource TeamsBackgroundLightGrayBrush}" />
+        <!--<Border Grid.Column="1" Background="{StaticResource TeamsBackgroundLightGrayBrush}" />-->
 
-        <!--<Frame Grid.Column="2" x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" />-->
+        <Frame Grid.Column="1" x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" />
     </Grid>
 
 </Window>

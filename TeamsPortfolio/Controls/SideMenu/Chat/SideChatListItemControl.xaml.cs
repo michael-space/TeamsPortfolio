@@ -5,9 +5,9 @@ namespace TeamsPortfolio
     /// <summary>
     /// Interaction logic for ChatListItemControl.xaml
     /// </summary>
-    public partial class ChatListItemControl : UserControl
+    public partial class SideChatListItemControl : UserControl
     {
-        public ChatListItemControl()
+        public SideChatListItemControl()
         {
             InitializeComponent();
         }

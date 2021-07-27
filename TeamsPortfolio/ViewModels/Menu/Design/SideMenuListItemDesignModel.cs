@@ -23,7 +23,7 @@
         {
             Icon = "Solid_Bell";
             Name = "Activity";
-            Indicator = false;
+            IsNewActivityReceived = false;
         }
 
         #endregion

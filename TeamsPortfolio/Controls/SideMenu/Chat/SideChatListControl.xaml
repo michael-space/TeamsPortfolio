@@ -10,7 +10,7 @@
     <!-- left chat list -->
     <Border Grid.Column="1" 
             Background="{StaticResource TeamsBackgroundWhiteBrush}"
-            Padding=" 5 0 5 0"
+            Padding="0 0 0 0"
             >
         <Grid>
             <Grid.RowDefinitions>

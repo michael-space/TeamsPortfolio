@@ -18,6 +18,8 @@
         /// </summary>
         public string ProfilePictureHexColor { get; set; }
 
+        public bool IsSelected { get; set; }
+
         #endregion
     }
 }
